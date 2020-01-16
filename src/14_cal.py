@@ -22,3 +22,22 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+time = datetime.now()
+year = time.year
+month = time.month
+
+args = sys.argv[1:]
+
+if args:
+    month = int(args[0])
+    if len(args) > 1:
+        year = int(args[0])
+        month = int(args[1])
+
+if len(args) > 2:
+    print("Please provide year and month only.")
+elif month < 1 or month > 12:
+    print("Month must between 1 and 12")
+else:
+    print(calendar.month(year, month))
